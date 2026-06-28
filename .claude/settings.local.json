@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx skills *)",
+      "Bash(open *)",
+      "Bash(rm -f .claude/skills/emil-design-eng)",
+      "Bash(cp -r .agents/skills/emil-design-eng .claude/skills/)",
+      "Bash(cp -r .agents/skills/impeccable .claude/skills/)",
+      "Bash(node *)",
+      "Bash(curl *)",
+      "Bash(brew install gh 2>&1)",
+      "Bash(git add flag-shop.html dashboard.html && git commit -m \"$\\(cat <<'EOF'\nAdd pride flag card, custom flag description field, and dashboard order updates\n\n- Pride flag now renders as a CSS rainbow gradient \\(no external SVG dependency\\)\n- Custom flag card in coverflow shows a text input for the customer to\n  describe which country/flag they want; description flows through to\n  the order confirmation email and selection strip\n- Dashboard: corrected flags for all orders \\(Nimatha, Mormor, Aunty G\\),\n  added Uncle Wadood \\(sent\\), Uncle Arez \\(Kurdistan\\), Uncle Ayman \\(Palestine\\)\n- Dashboard: SPECIAL_FLAGS lookup for kurdistan + pride image URLs\n- Dashboard: flag images made smaller \\(30×45px\\), empty-city guard on map\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\nEOF\n\\)\")"
+    ]
+  }
+}

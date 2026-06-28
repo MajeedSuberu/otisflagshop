@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-16T00:00:00Z",
+  "title": "Design System: Flags by Otis",
+  "extensions": {
+    "colorMeta": {
+      "paper":           { "role": "neutral",   "displayName": "Warm Writing Paper",  "canonical": "oklch(97% 0.022 85)",  "tonalRamp": ["#4a3e26","#6b5833","#8c7445","#b09560","#ccb07e","#e0cc9f","#f0e3c3","#fdf6e3"] },
+      "paper-deep":      { "role": "neutral",   "displayName": "Aged Paper",           "canonical": "oklch(93% 0.03 82)",   "tonalRamp": ["#3d3018","#5c4825","#7d6438","#9f8055","#b99a72","#d1b894","#e4d2b6","#f5e6c8"] },
+      "page-bg":         { "role": "neutral",   "displayName": "Kraft Canvas",         "canonical": "oklch(87% 0.04 80)",   "tonalRamp": ["#352a14","#4f3f1e","#6d572c","#8f7340","#ad9059","#c9ae7c","#ddc89f","#e8d5b0"] },
+      "card":            { "role": "neutral",   "displayName": "Parchment Card",       "canonical": "oklch(99% 0.008 80)",  "tonalRamp": ["#4a3e26","#7a6640","#a28c60","#c4ae88","#d9c9a9","#ecddcb","#f6efdf","#fffdf6"] },
+      "ink":             { "role": "neutral",   "displayName": "Indian Ink",           "canonical": "oklch(17% 0.038 55)",  "tonalRamp": ["#2c1a0e","#42280f","#5c3d1e","#7a5230","#9a6e47","#be946b","#dab898","#f0dcc4"] },
+      "ink-muted":       { "role": "neutral",   "displayName": "Dried Ink",            "canonical": "oklch(50% 0.068 65)",  "tonalRamp": ["#1a0e04","#3a2208","#5c3a12","#7d5520","#8a6840","#a98255","#c9a878","#e4cda8"] },
+      "accent-red":      { "role": "primary",   "displayName": "Wax Seal Red",         "canonical": "oklch(55% 0.178 25)",  "tonalRamp": ["#1a0402","#3f0c08","#661411","#912019","#b83429","#d94f3d","#e97f74","#f5b8b2"] },
+      "accent-red-deep": { "role": "primary",   "displayName": "Pressed Red Shadow",   "canonical": "oklch(38% 0.135 25)",  "tonalRamp": ["#120302","#2e0905","#4d0e0a","#701612","#9b2e1f","#be4a38","#d67d72","#edb9b3"] },
+      "accent-blue":     { "role": "secondary", "displayName": "Swedish Blue",         "canonical": "oklch(48% 0.118 254)", "tonalRamp": ["#030d18","#0a2035","#13395e","#1e548a","#2a6cb5","#3a6ea5","#6899c8","#a3c2e3"] },
+      "accent-green":    { "role": "secondary", "displayName": "Ethiopian Green",      "canonical": "oklch(54% 0.098 151)", "tonalRamp": ["#050f07","#0f2416","#1a3c24","#275936","#367548","#4a8c5c","#74ae82","#acd1bc"] },
+      "accent-yellow":   { "role": "tertiary",  "displayName": "Afternoon Yellow",     "canonical": "oklch(78% 0.132 82)",  "tonalRamp": ["#1a1100","#3d2a00","#614006","#8f5e0c","#b87e14","#e8b84b","#f1cf7c","#f8e9b8"] },
+      "border":          { "role": "neutral",   "displayName": "Envelope Crease",      "canonical": "oklch(73% 0.07 73)",   "tonalRamp": ["#2e2008","#4e380f","#705219","#927028","#b09060","#c8a87a","#ddc49e","#f0dfc3"] },
+      "border-light":    { "role": "neutral",   "displayName": "Stationery Edge",      "canonical": "oklch(85% 0.035 77)",  "tonalRamp": ["#342a15","#534422","#6e5d2f","#8f7d4a","#ad9c70","#c8b898","#ddd0bb","#e0d0b8"] }
+    },
+    "typographyMeta": {
+      "display":  { "displayName": "Display",  "purpose": "Page title only, once per page. Permanent Marker pressed hard." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles, always paired with the Afternoon Yellow underline bar." },
+      "title":    { "displayName": "Title",    "purpose": "Prominent numeric values: rates (blue), totals (green)." },
+      "body":     { "displayName": "Body",     "purpose": "All conversational content and form inputs. Weight 600 for flag names." },
+      "label":    { "displayName": "Label",    "purpose": "Receding secondary info: SEK conversions, footnotes, footer." }
+    },
+    "shadows": [
+      { "name": "paper-stack",   "value": "3px 3px 0 rgba(44,26,14,0.12), 6px 6px 0 rgba(44,26,14,0.06)", "purpose": "All main content sections. Two-layer offset simulates folded-letter thickness." },
+      { "name": "card-rest",     "value": "2px 2px 0 rgba(44,26,14,0.15)",                                 "purpose": "Flag cards and testimonial cards at rest." },
+      { "name": "card-hover",    "value": "4px 6px 0 rgba(44,26,14,0.15)",                                 "purpose": "Flag card on hover, paired with rotate(1deg) translateY(-3px)." },
+      { "name": "stamp-ink",     "value": "4px 4px 0 #9b2e1f",                                             "purpose": "Submit button rest state. Colored shadow reads as a wax seal." },
+      { "name": "stamp-pressed", "value": "2px 2px 0 #9b2e1f",                                             "purpose": "Submit button active state. Stamp pushes down, shadow contracts." }
+    ],
+    "motion": [
+      { "name": "ease-press",    "value": "0.1s ease",  "purpose": "Button press and release. Deliberately snappy, like a stamp." },
+      { "name": "ease-lift",     "value": "0.15s ease", "purpose": "Card hover lift. Slightly slower than press; the card rises gently." },
+      { "name": "ease-form",     "value": "0.2s ease",  "purpose": "Form field focus transitions (border color shift)." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "520px", "purpose": "Single-column breakpoint for form grid and flag card grid." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The only button in the system. Reads as a rubber stamp pressing into paper.",
+      "html": "<button class=\"ds-btn-primary\">✉️ Send my order request!</button>",
+      "css": ".ds-btn-primary { background: #d94f3d; color: #fffdf6; font-family: 'Permanent Marker', cursive; font-size: 1.4rem; border: none; padding: 16px 32px; border-radius: 4px; cursor: pointer; box-shadow: 4px 4px 0 #9b2e1f; transition: transform 0.1s ease, box-shadow 0.1s ease; } .ds-btn-primary:hover { transform: translateY(-2px); box-shadow: 4px 6px 0 #9b2e1f; } .ds-btn-primary:active { transform: translateY(2px); box-shadow: 2px 2px 0 #9b2e1f; } .ds-btn-primary:focus-visible { outline: 3px solid #3a6ea5; outline-offset: 3px; }"
+    },
+    {
+      "name": "Flag Card",
+      "kind": "custom",
+      "refersTo": "flag-card",
+      "description": "Selectable postage-stamp card. Lifts and tilts right on hover; tilts opposite direction when selected.",
+      "html": "<button class=\"ds-flag-card\" aria-pressed=\"false\"><span class=\"ds-flag-card__check\" aria-hidden=\"true\">✅</span><img class=\"ds-flag-card__img\" src=\"https://flagcdn.com/w320/et.png\" alt=\"Ethiopia flag\" loading=\"lazy\"><span class=\"ds-flag-card__name\">🇪🇹 Ethiopia</span><span class=\"ds-flag-card__price\">150 Birr<span class=\"ds-flag-card__sek\">≈ 10 SEK</span></span></button>",
+      "css": ".ds-flag-card { background: #fffdf6; border-radius: 3px; padding: 13px 11px 11px; box-shadow: 2px 2px 0 rgba(44,26,14,0.15); cursor: pointer; transition: transform 0.15s ease, box-shadow 0.15s ease; position: relative; text-align: center; font-family: 'Caveat', cursive; border: none; width: 100%; } .ds-flag-card:hover { transform: rotate(1deg) translateY(-3px); box-shadow: 4px 6px 0 rgba(44,26,14,0.15); } .ds-flag-card[aria-pressed='true'] { outline: 3px solid #d94f3d; outline-offset: 2px; transform: rotate(-1deg) scale(1.03); } .ds-flag-card:focus-visible { outline: 3px solid #3a6ea5; outline-offset: 3px; } .ds-flag-card__check { display: none; position: absolute; top: 6px; right: 8px; font-size: 1.1rem; } .ds-flag-card[aria-pressed='true'] .ds-flag-card__check { display: block; } .ds-flag-card__img { width: 100%; height: 72px; object-fit: cover; display: block; margin-bottom: 9px; border: 1px solid #e0d0b8; border-radius: 2px; } .ds-flag-card__name { font-size: 1.05rem; font-weight: 600; display: block; margin-bottom: 3px; color: #2c1a0e; } .ds-flag-card__price { font-size: 1rem; color: #4a8c5c; font-family: 'Permanent Marker', cursive; } .ds-flag-card__sek { font-family: 'Patrick Hand', cursive; font-size: 0.85rem; color: #8a6840; display: block; margin-top: 1px; }"
+    },
+    {
+      "name": "Paper Section",
+      "kind": "card",
+      "refersTo": "paper-section",
+      "description": "A sheet of paper on the desk. The tape variant adds a semi-transparent strip at the top.",
+      "html": "<section class=\"ds-paper-section ds-paper-section--tape\"><h2 class=\"ds-section-title\">Pick your flags</h2><p style=\"font-family:'Caveat',cursive;font-size:1.2rem;color:#2c1a0e;\">Section content goes here.</p></section>",
+      "css": ".ds-paper-section { background: #fdf6e3; border-radius: 4px; box-shadow: 3px 3px 0 rgba(44,26,14,0.12), 6px 6px 0 rgba(44,26,14,0.06); padding: 36px 28px; position: relative; } .ds-paper-section--tape::before { content: ''; position: absolute; top: -14px; left: 50%; transform: translateX(-50%) rotate(-2deg); width: 70px; height: 26px; background: rgba(255,220,100,0.55); border-radius: 2px; z-index: 2; } .ds-section-title { font-family: 'Permanent Marker', cursive; font-size: 1.9rem; color: #2c1a0e; text-align: center; margin-bottom: 24px; } .ds-section-title::after { content: ''; display: block; width: 80px; height: 4px; background: #e8b84b; border-radius: 2px; margin: 8px auto 0; }"
+    },
+    {
+      "name": "Form Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Lined paper waiting to be filled. Border shifts to Swedish Blue on focus; outline added for WCAG 2.4.11.",
+      "html": "<div class=\"ds-form-group\"><label class=\"ds-label\" for=\"ds-input-ex\">Your name</label><input class=\"ds-input\" type=\"text\" id=\"ds-input-ex\" placeholder=\"e.g. Farmor Birgitta\" autocomplete=\"name\"></div>",
+      "css": ".ds-form-group { display: flex; flex-direction: column; gap: 6px; } .ds-label { font-family: 'Caveat', cursive; font-size: 1.15rem; font-weight: 600; color: #4a2e0e; } .ds-input { font-family: 'Caveat', cursive; font-size: 1.2rem; padding: 10px 14px; border: 2px solid #c8a87a; border-radius: 3px; background: #fffdf6; color: #2c1a0e; outline: none; transition: border-color 0.2s ease; width: 100%; } .ds-input:focus { border-color: #3a6ea5; outline: 2px solid #3a6ea5; outline-offset: 2px; }"
+    },
+    {
+      "name": "Badge",
+      "kind": "chip",
+      "refersTo": "badge",
+      "description": "Otis's own label on the header, always tilted -2 degrees.",
+      "html": "<span class=\"ds-badge\">✏️ Hand-drawn, with love</span>",
+      "css": ".ds-badge { display: inline-block; background: #d94f3d; color: #fffdf6; font-family: 'Permanent Marker', cursive; font-size: 13px; padding: 5px 14px; border-radius: 100px; transform: rotate(-2deg); }"
+    },
+    {
+      "name": "Testimonial Card",
+      "kind": "card",
+      "refersTo": null,
+      "description": "A sticky note pinned to a board. Each card has a distinct pastel background and a fixed rotation. Not interactive.",
+      "html": "<div class=\"ds-testimonial-card\"><p class=\"ds-testimonial-quote\">\"Otis called me all the way from Ethiopia to check how I wanted it!\"</p><span class=\"ds-testimonial-author\">🇸🇪 Farmor Ulla, Stockholm</span></div>",
+      "css": ".ds-testimonial-card { background: #fef9c3; padding: 22px 18px 16px; border-radius: 3px; position: relative; box-shadow: 2px 2px 0 rgba(44,26,14,0.15); transform: rotate(-1.5deg); font-family: 'Caveat', cursive; } .ds-testimonial-card::before { content: ''; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 10px; height: 10px; background: rgba(0,0,0,0.15); border-radius: 50%; } .ds-testimonial-quote { font-size: 1.15rem; line-height: 1.55; color: #2c1a0e; margin-bottom: 12px; } .ds-testimonial-author { font-family: 'Permanent Marker', cursive; font-size: 0.95rem; color: #5c3d1e; }"
+    },
+    {
+      "name": "Section Title",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "A Headline-role heading with its inseparable yellow underline bar. Never used without the ::after strip.",
+      "html": "<h2 class=\"ds-section-title\">Happy customers 💛</h2>",
+      "css": ".ds-section-title { font-family: 'Permanent Marker', cursive; font-size: 1.9rem; color: #2c1a0e; text-align: center; margin-bottom: 24px; } .ds-section-title::after { content: ''; display: block; width: 80px; height: 4px; background: #e8b84b; border-radius: 2px; margin: 8px auto 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Letter from Addis",
+    "overview": "This design system is built around one physical sensation: opening an envelope from far away and finding something made by hand inside. Every surface is paper. Every shadow is an object resting on a desk. Every font is a pen Otis picked up. The page does not simulate a shop; it simulates correspondence.\n\nThe system is warm, earnest, and intentionally imprecise. Sections tilt slightly. Cards lift and tilt when you touch them. The fonts are handwritten. The color palette comes from the flags Otis draws, not from a brand identity document. This is not a designed product; it is a documented child's workshop. The primary audience is Swedish grandparents, aunts, and uncles who love Otis and want something made by his hands.\n\nThe system explicitly rejects: Etsy-adjacent handmade-goods aesthetic; charity and NGO visual language; children's app and edtech design; generic e-commerce conversion design. If it looks like any of those, it has failed.",
+    "keyCharacteristics": [
+      "Every content block is a physical sheet of paper, sitting on a warm kraft-paper desk",
+      "Hard-offset zero-blur shadows only: objects rest on surfaces, they do not float above them",
+      "Three-voice typography system: Permanent Marker (proud), Caveat (conversational), Patrick Hand (careful)",
+      "Four accent colors, each locked to one role: Red (action), Blue (value/focus), Green (price), Yellow (highlight)",
+      "Imperfection is load-bearing: rotations, tilts, and the tape-strip motif signal a real human made this"
+    ],
+    "rules": [
+      { "name": "The Four-Flag Rule",   "body": "Red is action. Blue is value. Green is price. Yellow is highlight. Each accent appears in exactly one role. Never repurpose an accent for a different role; never use all four in the same visual region.", "section": "colors" },
+      { "name": "The No-White Rule",    "body": "Pure #fff is forbidden. Card backgrounds, button text, and input backgrounds use #fffdf6 (token: card), a barely-perceptible warm tint that keeps every surface inside the parchment family.", "section": "colors" },
+      { "name": "The Three Voices Rule","body": "Permanent Marker is for things Otis is proud of. Caveat is for things Otis is telling you. Patrick Hand is for details you might need but that require no emphasis. Permanent Marker in body copy is forbidden. Patrick Hand in headings is forbidden.", "section": "typography" },
+      { "name": "The Underline Rule",   "body": "Every Headline-role element receives a centered yellow bar: 80px x 4px, #e8b84b, border-radius 2px, 8px gap below the text. This is not optional decoration; it is the visual definition of a section heading in this system.", "section": "typography" },
+      { "name": "The Zero-Blur Rule",   "body": "Every box-shadow in this system has blur-radius: 0. A blurred shadow is prohibited. Achieve additional depth with tonal surface layers, not gaussian blur.", "section": "elevation" },
+      { "name": "The Ink Shadow Rule",  "body": "Only the submit button uses a colored shadow (#9b2e1f). All other shadows use rgba(44,26,14,...). Never apply a colored shadow to a card, section, or input.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use #fffdf6 (token: card) for every card and input background. Pure #fff is prohibited.",
+      "Do apply hard-offset zero-blur shadows to all elevated surfaces. Every box-shadow has blur-radius: 0.",
+      "Do tilt cards, sections, and the badge slightly. Imperfection is the brand signal.",
+      "Do use Permanent Marker for anything Otis is proud of: titles, section headings, prices, the CTA.",
+      "Do use Patrick Hand only for receding secondary information: SEK conversions, rate notes, footer copy.",
+      "Do enforce the Four-Flag Rule: Red for action, Blue for value/focus, Green for price, Yellow for highlight.",
+      "Do ensure every interactive element is at least 44px in touch target size.",
+      "Do attach the yellow underline bar to every Headline-role element. It is not optional.",
+      "Do set aria-pressed on flag cards and announce selection changes via aria-live='polite'.",
+      "Do pair the border-color focus shift with an explicit outline. Both are required for WCAG 2.4.11."
+    ],
+    "donts": [
+      "Don't use #fff or #000 anywhere. Every surface and text must be tinted toward the warm brand hue.",
+      "Don't add blur to any shadow. blur-radius: 0 is absolute.",
+      "Don't use border-left greater than 1px as a colored stripe on callouts, cards, or alerts.",
+      "Don't animate layout properties (width, height, padding, margin). Animate only transform and opacity.",
+      "Don't design like Etsy: no beige rustic grids, no marketplace distance between buyer and maker.",
+      "Don't design like a charity or NGO: no polished cause-driven layouts, no donation-page tone.",
+      "Don't design like a children's app: no bubbly rounded fonts beyond the existing trio.",
+      "Don't design like generic e-commerce: no cold product grids, no conversion-optimization patterns.",
+      "Don't repurpose an accent color. Swedish Blue is not a decorative highlight. Ethiopian Green is not for emphasis text.",
+      "Don't use #9b2e1f anywhere except as the submit button's shadow color.",
+      "Don't use Permanent Marker for body copy or Patrick Hand for headings.",
+      "Don't use gradient text (background-clip: text with a gradient).",
+      "Don't make anything feel transactional. The form leads to a phone call from a 6-year-old."
+    ]
+  }
+}
