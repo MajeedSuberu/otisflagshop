@@ -688,6 +688,57 @@
     transform: scale(1.45);
   }
 
+  /* ── COVERFLOW CUSTOM FLAG INPUT ─────────────────────────────────────── */
+
+  .cf-custom-wrap {
+    padding: 0 24px 4px;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    display: none;
+  }
+  .cf-custom-wrap input {
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    padding: 11px 16px;
+    border: 1.5px solid rgba(253,246,227,0.32);
+    border-radius: 2px;
+    background: rgba(253,246,227,0.1);
+    color: var(--paper);
+    outline: none;
+    width: 100%;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .cf-custom-wrap input::placeholder { color: rgba(253,246,227,0.35); }
+  .cf-custom-wrap input:focus {
+    border-color: rgba(253,246,227,0.7);
+    background: rgba(253,246,227,0.18);
+  }
+  .cf-custom-label {
+    font-family: 'Caveat', cursive;
+    font-size: 0.95rem;
+    font-variant: small-caps;
+    letter-spacing: 0.06em;
+    color: rgba(253,246,227,0.45);
+    display: block;
+    margin-bottom: 7px;
+  }
+
+  /* ── PRIDE FLAG CARD ─────────────────────────────────────────────────── */
+
+  .cf-card-pride {
+    background: linear-gradient(to bottom,
+      #3D1A78 0%,   #3D1A78 14.3%,
+      #0038A8 14.3%,#0038A8 28.6%,
+      #008026 28.6%,#008026 42.9%,
+      #FFED00 42.9%,#FFED00 57.1%,
+      #FF8C00 57.1%,#FF8C00 71.4%,
+      #E40303 71.4%,#E40303 85.7%,
+      #750787 85.7%,#750787 100%
+    );
+    border-radius: 3px;
+  }
+
   /* ── ABOUT ──────────────────────────────────────────────────────────────── */
 
   .about-section {
@@ -852,6 +903,10 @@
     <p class="cf-name" id="cfName"></p>
     <p class="cf-flag-note" id="cfFlagNote"></p>
     <p class="cf-price" id="cfPrice"></p>
+    <div class="cf-custom-wrap" id="cfCustomWrap">
+      <label class="cf-custom-label" for="cfCustomInput">Which country?</label>
+      <input type="text" id="cfCustomInput" placeholder="e.g. Mexico, Kosovo, Catalonia…" maxlength="80" autocomplete="off">
+    </div>
     <div class="cf-qty-wrap">
       <button class="cf-qty-btn" id="cfQtyMinus" aria-label="Remove one" disabled>−</button>
       <span class="cf-qty-num" id="cfQtyNum">Add to order</span>
@@ -971,7 +1026,10 @@ function updateSelectionDisplay() {
     const parts = ids.map(id => {
       const f = FLAGS.find(x => x.id === id);
       const qty = selected[id];
-      return qty > 1 ? `${f?.name} ×${qty}` : f?.name;
+      const label = id === 'custom'
+        ? (customFlagDesc ? `Custom (${customFlagDesc})` : 'Custom flag')
+        : f?.name;
+      return qty > 1 ? `${label} ×${qty}` : label;
     });
     el.textContent = `You have picked: ${parts.join(', ')}`;
   }
@@ -1050,7 +1108,10 @@ async function handleSubmit() {
   const notes     = document.getElementById('notes').value.trim();
   const flagNames = Object.keys(selected).map(id => {
     const f = FLAGS.find(x => x.id === id);
-    return selected[id] > 1 ? `${f?.name} ×${selected[id]}` : f?.name;
+    const label = id === 'custom'
+      ? (customFlagDesc ? `Custom flag (${customFlagDesc})` : 'Custom flag')
+      : f?.name;
+    return selected[id] > 1 ? `${label} ×${selected[id]}` : label;
   }).join(', ');
   const total = Object.keys(selected).reduce((s, id) => s + (FLAGS.find(x => x.id === id)?.price || 0) * selected[id], 0);
 
@@ -1099,6 +1160,12 @@ document.getElementById('submitBtn').addEventListener('click', handleSubmit);
 let cfIndex = 0;
 let cfTouchStartX = null;
 let cfWheelLast = 0;
+let customFlagDesc = '';
+
+document.getElementById('cfCustomInput').addEventListener('input', e => {
+  customFlagDesc = e.target.value.trim();
+  updateSelectionDisplay();
+});
 
 function openCoverflow(startId) {
   cfIndex = FLAGS.findIndex(f => f.id === startId);
@@ -1126,10 +1193,13 @@ function buildCoverflowCards() {
     const card = document.createElement('div');
     card.className = 'cf-card';
     if (f.custom) {
-      card.innerHTML = `<div class="cf-card-placeholder">Your flag</div>`;
+      card.innerHTML = `<div class="cf-card-placeholder">✏️ Your flag</div>`;
+    } else if (f.id === 'pride') {
+      card.classList.add('cf-card-pride');
+    } else if (f.imgUrl) {
+      card.innerHTML = `<img src="${f.imgUrl}" alt="${f.name} flag" loading="lazy">`;
     } else {
-      const src = f.imgUrl || `https://flagcdn.com/w640/${f.id}.png`;
-      card.innerHTML = `<img src="${src}" alt="${f.name} flag" loading="lazy">`;
+      card.innerHTML = `<img src="https://flagcdn.com/w640/${f.id}.png" alt="${f.name} flag" loading="lazy">`;
     }
     card.addEventListener('click', () => {
       if (i !== cfIndex) { cfIndex = i; updateCoverflow(); }
@@ -1191,6 +1261,12 @@ function updateCoverflow() {
   document.getElementById('cfFlagNote').textContent = f.note;
   document.getElementById('cfPrice').textContent =
     `${f.price} Birr${etbToSek ? ` ≈ ${birrToSek(f.price)} SEK` : ''}`;
+  const customWrap = document.getElementById('cfCustomWrap');
+  customWrap.style.display = f.custom ? 'block' : 'none';
+  if (f.custom) {
+    document.getElementById('cfCustomInput').value = customFlagDesc;
+    setTimeout(() => document.getElementById('cfCustomInput').focus(), 50);
+  }
   updateCfQty();
 }
 
